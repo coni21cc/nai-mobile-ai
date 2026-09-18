@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#130e12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="AI女友" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>AI 女友 Mobile V1</title>
+</head>
+<body>
+  <main id="app" class="app">
+    <section class="scene" aria-label="角色場景">
+      <img id="sceneImage" class="scene-image" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
+      <div class="vignette"></div>
+      <header class="topbar glass">
+        <button id="characterBtn" class="pill-btn" type="button"><span class="avatar-dot"></span><span id="characterName">小奈</span><span class="chev">⌄</span></button>
+        <div class="top-actions"><button id="wardrobeBtn" class="icon-btn" type="button" aria-label="換裝">👗</button><button id="settingsBtn" class="icon-btn" type="button" aria-label="設定">⚙️</button></div>
+      </header>
+      <div id="speech" class="speech-text" aria-live="polite">源哥～晚上好 ♡</div>
+      <div class="status-row"><span id="outfitChip" class="status-chip glass">家居服</span><span id="moodChip" class="status-chip glass">心情：開心</span></div>
+      <form id="chatForm" class="composer glass"><button class="composer-icon" type="button" tabindex="-1">☺︎</button><input id="chatInput" autocomplete="off" placeholder="和小奈聊天吧…" maxlength="500" /><button class="send-btn" type="submit" aria-label="送出">➤</button></form>
+    </section>
+    <div id="sheetBackdrop" class="sheet-backdrop hidden"></div>
+    <section id="characterSheet" class="bottom-sheet hidden"><div class="sheet-handle"></div><h2>我的角色</h2><div id="characterList" class="card-list"></div><button id="addCharacterBtn" class="secondary-btn" type="button">＋ 新增角色（預留）</button></section>
+    <section id="wardrobeSheet" class="bottom-sheet hidden"><div class="sheet-handle"></div><div class="sheet-title-row"><h2><span id="wardrobeTitleName">小奈</span>｜換裝</h2><button id="closeWardrobe" class="close-btn" type="button">×</button></div><p class="sheet-subtitle">源哥，今天想看我穿哪一套呀？♡</p><div id="outfitGrid" class="outfit-grid"></div></section>
+    <section id="settingsSheet" class="bottom-sheet hidden"><div class="sheet-handle"></div><div class="sheet-title-row"><h2>設定</h2><button id="closeSettings" class="close-btn" type="button">×</button></div><label class="setting-row"><span>主動聊天</span><input id="proactiveToggle" type="checkbox" checked /></label><label class="setting-row"><span>記住我的喜好</span><input id="memoryToggle" type="checkbox" checked /></label><label class="setting-row"><span>文字陰影</span><input id="shadowToggle" type="checkbox" checked /></label><button id="clearMemoryBtn" class="danger-btn" type="button">清除這台手機上的測試記憶</button><p class="privacy-note">V1 原型目前只把測試資料存在這台裝置的瀏覽器；下一階段會接真正 AI 與雲端記憶。</p></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
