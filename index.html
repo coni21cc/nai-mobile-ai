@@ -9,14 +9,14 @@
   <meta name="apple-mobile-web-app-title" content="AI女友" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="style.css?v=11" />
-  <title>AI 女友 Mobile V1.1</title>
+  <link rel="stylesheet" href="style.css?v=12" />
+  <title>AI 女友 Mobile V1.2</title>
 </head>
 <body>
   <main id="app" class="app">
     <section class="scene" aria-label="角色場景">
       <div class="scene-backdrop" aria-hidden="true"></div>
-      <img id="sceneImage" class="scene-image" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
+      <img id="sceneImage" class="scene-image idle-motion" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
       <div class="vignette"></div>
 
       <header class="topbar glass">
@@ -44,7 +44,7 @@
         <input id="chatInput" inputmode="text" enterkeyhint="send" autocomplete="off" placeholder="和小奈聊天吧…" maxlength="500" />
         <button class="send-btn" type="submit" aria-label="送出訊息">➤</button>
       </form>
-      <div class="composer-hint">V1.1 測試聊天｜真正 AI 下一階段接入</div>
+      <div class="composer-hint">V1.2 測試聊天｜下一階段接真正 AI + 動態角色</div>
     </section>
 
     <div id="sheetBackdrop" class="sheet-backdrop hidden"></div>
@@ -63,10 +63,11 @@
       <label class="setting-row"><span>主動聊天</span><input id="proactiveToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>記住我的喜好</span><input id="memoryToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>文字陰影</span><input id="shadowToggle" type="checkbox" checked /></label>
+      <label class="setting-row"><span>輕微待機動態</span><input id="motionToggle" type="checkbox" checked /></label>
       <button id="clearMemoryBtn" class="danger-btn" type="button">清除這台手機上的測試記憶</button>
-      <p class="privacy-note">V1.1 仍是本機測試記憶；下一階段會接真正 AI 與雲端記憶。</p>
+      <p class="privacy-note">V1.2 的待機動態是輕微鏡頭動態，不是完整人物動作。下一階段會換成真正的短影片動作片段與 AI 對話。</p>
     </section>
   </main>
-  <script src="app.js?v=11"></script>
+  <script src="app.js?v=12"></script>
 </body>
 </html>

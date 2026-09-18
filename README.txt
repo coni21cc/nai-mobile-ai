@@ -1,16 +1,10 @@
-Nai Mobile AI V1.1 更新檔
+Nai Mobile AI V1.2 Update
 
-請用這 4 個檔案覆蓋 GitHub repo 根目錄的同名檔案：
-- index.html
-- style.css
-- app.js
-- sw.js
+更新重點：
+1. 對話文字縮小，避免遮住頭部。
+2. 對話區改到畫面下方、狀態列上方。
+3. 新增「輕微待機動態」：圖片會有非常小的縮放/上下位移，讓畫面不完全靜止。
+4. 設定內可關閉待機動態。
+5. 更新 Service Worker 版本避免舊快取。
 
-主要修正：
-1. iPhone 直式構圖：前景圖片改為 contain，背景用同圖模糊填滿，人物不再只剩頭部。
-2. 對話輸入列上移，避開 Netlify badge。
-3. 送出按鈕明顯化，支援 Enter / iPhone Send。
-4. 增加使用者訊息顯示與測試回覆。
-5. Service Worker 升級 cache 版本，避免手機一直看到舊版。
-
-GitHub 更新後 Netlify 會自動部署。
+注意：目前待機動態只是鏡頭/畫面微動，不是真正人物眨眼、翻身、靠近等動作；那會在下一階段用短影片片段完成。
