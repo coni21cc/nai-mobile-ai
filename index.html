@@ -9,14 +9,16 @@
   <meta name="apple-mobile-web-app-title" content="AI女友" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="style.css?v=12" />
-  <title>AI 女友 Mobile V1.2</title>
+  <link rel="stylesheet" href="style.css?v=13" />
+  <title>AI 女友 Mobile V1.3</title>
 </head>
 <body>
   <main id="app" class="app">
-    <section class="scene" aria-label="角色場景">
+    <section id="scene" class="scene mood-happy" aria-label="角色場景">
       <div class="scene-backdrop" aria-hidden="true"></div>
-      <img id="sceneImage" class="scene-image idle-motion" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
+      <div id="characterStage" class="character-stage idle-motion">
+        <img id="sceneImage" class="scene-image" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
+      </div>
       <div class="vignette"></div>
 
       <header class="topbar glass">
@@ -31,7 +33,7 @@
 
       <div class="dialog-area">
         <div id="userLine" class="user-line" aria-live="polite"></div>
-        <div id="speech" class="speech-text" aria-live="polite">源哥～晚上好 ♡</div>
+        <div id="speech" class="speech-text" aria-live="polite">源哥～我在這裡 ♡</div>
       </div>
 
       <div class="status-row">
@@ -42,9 +44,9 @@
       <form id="chatForm" class="composer glass" autocomplete="off">
         <span class="composer-icon" aria-hidden="true">☺︎</span>
         <input id="chatInput" inputmode="text" enterkeyhint="send" autocomplete="off" placeholder="和小奈聊天吧…" maxlength="500" />
-        <button class="send-btn" type="submit" aria-label="送出訊息">➤</button>
+        <button id="sendBtn" class="send-btn" type="submit" aria-label="送出訊息">➤</button>
       </form>
-      <div class="composer-hint">V1.2 測試聊天｜下一階段接真正 AI + 動態角色</div>
+      <div id="connectionHint" class="composer-hint">V1.3｜AI 連線準備中</div>
     </section>
 
     <div id="sheetBackdrop" class="sheet-backdrop hidden"></div>
@@ -62,12 +64,12 @@
       <div class="sheet-title-row"><h2>設定</h2><button id="closeSettings" class="close-btn" type="button">×</button></div>
       <label class="setting-row"><span>主動聊天</span><input id="proactiveToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>記住我的喜好</span><input id="memoryToggle" type="checkbox" checked /></label>
+      <label class="setting-row"><span>待機微動</span><input id="motionToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>文字陰影</span><input id="shadowToggle" type="checkbox" checked /></label>
-      <label class="setting-row"><span>輕微待機動態</span><input id="motionToggle" type="checkbox" checked /></label>
       <button id="clearMemoryBtn" class="danger-btn" type="button">清除這台手機上的測試記憶</button>
-      <p class="privacy-note">V1.2 的待機動態是輕微鏡頭動態，不是完整人物動作。下一階段會換成真正的短影片動作片段與 AI 對話。</p>
+      <p class="privacy-note">V1.3 已預留真正 AI 與動態角色狀態。API 金鑰只會放在 Netlify 環境變數，不會寫在網頁程式裡。</p>
     </section>
   </main>
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
