@@ -9,16 +9,21 @@
   <meta name="apple-mobile-web-app-title" content="AI女友" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="style.css?v=13" />
-  <title>AI 女友 Mobile V1.3</title>
+  <link rel="stylesheet" href="style.css?v=14" />
+  <title>AI 女友 Mobile V1.4</title>
 </head>
 <body>
   <main id="app" class="app">
     <section id="scene" class="scene mood-happy" aria-label="角色場景">
       <div class="scene-backdrop" aria-hidden="true"></div>
-      <div id="characterStage" class="character-stage idle-motion">
-        <img id="sceneImage" class="scene-image" src="assets/nai_mobile_scene.jpg" alt="小奈的房間" />
-      </div>
+
+      <button id="characterTapArea" class="character-tap-area" type="button" aria-label="和小奈互動">
+        <div id="characterStage" class="character-stage idle-motion">
+          <video id="motionVideo" class="motion-video hidden" muted playsinline preload="metadata"></video>
+          <img id="sceneImage" class="scene-image" src="assets/nai_mobile_scene.jpg" alt="小奈" />
+        </div>
+      </button>
+
       <div class="vignette"></div>
 
       <header class="topbar glass">
@@ -31,7 +36,7 @@
         </div>
       </header>
 
-      <div class="dialog-area">
+      <div id="dialogArea" class="dialog-area">
         <div id="userLine" class="user-line" aria-live="polite"></div>
         <div id="speech" class="speech-text" aria-live="polite">源哥～我在這裡 ♡</div>
       </div>
@@ -39,6 +44,7 @@
       <div class="status-row">
         <span id="outfitChip" class="status-chip glass">家居服</span>
         <span id="moodChip" class="status-chip glass">心情：開心</span>
+        <span id="motionChip" class="status-chip glass">待機</span>
       </div>
 
       <form id="chatForm" class="composer glass" autocomplete="off">
@@ -46,30 +52,43 @@
         <input id="chatInput" inputmode="text" enterkeyhint="send" autocomplete="off" placeholder="和小奈聊天吧…" maxlength="500" />
         <button id="sendBtn" class="send-btn" type="submit" aria-label="送出訊息">➤</button>
       </form>
-      <div id="connectionHint" class="composer-hint">V1.3｜AI 連線準備中</div>
+      <div id="connectionHint" class="composer-hint">V1.4｜互動與動態狀態機</div>
     </section>
 
     <div id="sheetBackdrop" class="sheet-backdrop hidden"></div>
+
     <section id="characterSheet" class="bottom-sheet hidden">
-      <div class="sheet-handle"></div><h2>我的角色</h2><div id="characterList" class="card-list"></div>
+      <div class="sheet-handle"></div>
+      <h2>我的角色</h2>
+      <div id="characterList" class="card-list"></div>
       <button id="addCharacterBtn" class="secondary-btn" type="button">＋ 新增角色（預留）</button>
     </section>
+
     <section id="wardrobeSheet" class="bottom-sheet hidden">
       <div class="sheet-handle"></div>
-      <div class="sheet-title-row"><h2><span id="wardrobeTitleName">小奈</span>｜換裝</h2><button id="closeWardrobe" class="close-btn" type="button">×</button></div>
-      <p class="sheet-subtitle">源哥，今天想看我穿哪一套呀？♡</p><div id="outfitGrid" class="outfit-grid"></div>
+      <div class="sheet-title-row">
+        <h2><span id="wardrobeTitleName">小奈</span>｜換裝</h2>
+        <button id="closeWardrobe" class="close-btn" type="button">×</button>
+      </div>
+      <p class="sheet-subtitle">V1.4 已把每套衣服改成獨立素材插槽；有素材就會真的切換。</p>
+      <div id="outfitGrid" class="outfit-grid"></div>
     </section>
+
     <section id="settingsSheet" class="bottom-sheet hidden">
       <div class="sheet-handle"></div>
-      <div class="sheet-title-row"><h2>設定</h2><button id="closeSettings" class="close-btn" type="button">×</button></div>
+      <div class="sheet-title-row">
+        <h2>設定</h2>
+        <button id="closeSettings" class="close-btn" type="button">×</button>
+      </div>
       <label class="setting-row"><span>主動聊天</span><input id="proactiveToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>記住我的喜好</span><input id="memoryToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>待機微動</span><input id="motionToggle" type="checkbox" checked /></label>
+      <label class="setting-row"><span>點角色互動</span><input id="tapToggle" type="checkbox" checked /></label>
       <label class="setting-row"><span>文字陰影</span><input id="shadowToggle" type="checkbox" checked /></label>
       <button id="clearMemoryBtn" class="danger-btn" type="button">清除這台手機上的測試記憶</button>
-      <p class="privacy-note">V1.3 已預留真正 AI 與動態角色狀態。API 金鑰只會放在 Netlify 環境變數，不會寫在網頁程式裡。</p>
+      <p class="privacy-note">V1.4 先優化互動、鍵盤與動態狀態。真正人物動作可直接替換為 motions 資料夾中的 MP4。</p>
     </section>
   </main>
-  <script src="app.js?v=13"></script>
+  <script src="app.js?v=14"></script>
 </body>
 </html>
